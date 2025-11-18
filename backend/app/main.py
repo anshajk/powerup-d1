@@ -1,10 +1,13 @@
 from fastapi import FastAPI
-from app.routers import devices, ip_utils
+
+from app.routers import devices, ip_utils, tickets
 
 app = FastAPI(title="Telecom Device API", version="1.0.0")
 
+
 app.include_router(devices.router)
 app.include_router(ip_utils.router)
+app.include_router(tickets.router)
 
 
 @app.get("/")
